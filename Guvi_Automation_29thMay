@@ -1,0 +1,76 @@
+package HappyLog;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Login {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:/Software/drivers/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://petstore.octoperf.com/");
+		
+		//partialLink
+		WebElement hyperlink = driver.findElement(By.partialLinkText("Enter"));
+		hyperlink.click();
+		
+		//linkTest
+		WebElement signIn = driver.findElement(By.linkText("Sign In"));
+		signIn.click();
+		
+		//name
+		driver.findElement(By.name("username")).sendKeys("432");
+		Thread.sleep(500);
+		
+		//cssSelector
+		//driver.findElement(By.cssSelector(".username")).sendKeys("432");
+		
+		//id
+		//driver.findElement(By.id("stripes--35293343")).sendKeys("432");
+		
+		//xpath
+		WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+		password.clear();
+		password.sendKeys("Nancy@123");
+		Thread.sleep(500);
+		
+		driver.findElement(By.name("signon")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.xpath("//*[@id=\"SidebarContent\"]/a[1]/img")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody/tr[2]/td[1]/a")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody/tr[2]/td[1]/a")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.className("Button")).click();
+		Thread.sleep(500);
+		
+		//cssSelector class(.) id(#)
+	    //driver.findElement(By.cssSelector(".Button")).click();
+		
+		driver.findElement(By.linkText("Proceed to Checkout")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.name("newOrder")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.className("Button")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.linkText("Return to Main Menu")).click();
+		Thread.sleep(500);
+		
+		driver.findElement(By.linkText("Sign Out")).click();
+		
+		//driver.close();
+
+	}
+
+}
